@@ -18,6 +18,7 @@ const DynamicFlowbite = dynamic(
 const Authenticated: React.FC<ContentProps> = ({ children }) => {
   const [auth, setAuth] = useState<boolean>(false);
   const initialUserDetails: UserDataInterface = {
+    id: 0,
     first_name: "",
     last_name: "",
     name: "",
@@ -31,15 +32,21 @@ const Authenticated: React.FC<ContentProps> = ({ children }) => {
     role: "",
     zip_code: "",
     email: "",
-    password: "",
-    password_confirmed: "",
+    register_date: "",
+    bank_account: {
+      id: 0,
+      account_number: 0,
+      balance: 0,
+      currency: "",
+      currency_symbol: "",
+      user_id: 0,
+      name: "",
+      created_at: "",
+      updated_at: "",
+      deleted_at: null,
+    },
   };
   const [user, setUser] = useState<UserDataInterface>(initialUserDetails);
-
-  useEffect(() => {
-    fetchData();
-    DynamicFlowbite;
-  }, []);
 
   const fetchData = useCallback(async () => {
     try {
@@ -51,11 +58,16 @@ const Authenticated: React.FC<ContentProps> = ({ children }) => {
     } catch (error) {
       location.href = "/login";
     }
-  }, []);
+  }, [setUser, setAuth]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <>
-     <Nav user={user} />
-      <Sidebar  />
+      <Nav user={user} />
+      <Sidebar />
       <Content>{auth && children}</Content>
     </>
   );

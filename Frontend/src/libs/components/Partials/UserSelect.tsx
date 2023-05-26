@@ -1,7 +1,6 @@
 import { formatNumber } from "@/libs/Utils/Helpers";
 import {
   ApiResponse,
-  CustomerListResponse,
   UserDataInterface,
 } from "@/libs/Utils/Interfaces";
 import axios from "axios";
@@ -23,12 +22,12 @@ interface UserSelectProps {
 
 function UserSelect(props: UserSelectProps) {
   const { onChange, selectedId, showError, label } = props;
-  const [customerDatas, setUserSelects] = useState<UserSelect[]>([]);
+  const [usersData, setUserSelects] = useState<UserDataInterface[]>([]);
   const accessToken = localStorage.getItem("access_token");
   
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get<ApiResponse<UserSelect>>(
+      const response = await axios.get<ApiResponse<UserDataInterface>>(
         `${apiUrl}/users/`,
         {
           headers: {
@@ -62,10 +61,10 @@ function UserSelect(props: UserSelectProps) {
         className="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
       >
         <option></option>
-        {customerDatas &&
-          customerDatas?.map((cs) => (
-            <option key={cs.id} value={cs.bank_account.account_number}>
-              {cs.bank_account.account_number} - {cs.first_name} {cs.last_name}
+        {usersData &&
+          usersData?.map((cs) => (
+            <option key={cs.id} value={cs.bank_account?.account_number??''}>
+              {cs.bank_account?.account_number ??''} - {cs.first_name} {cs.last_name}
             </option>
           ))}
       </select>

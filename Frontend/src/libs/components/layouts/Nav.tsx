@@ -2,6 +2,8 @@ import { logout } from "@/libs/Utils/ApiHelpers";
 import { formatCurrency } from "@/libs/Utils/Helpers";
 import { UserDataInterface } from "@/libs/Utils/Interfaces";
 import { DarkThemeToggle } from "flowbite-react";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 const appName = process.env.NEXT_PUBLIC_APP_NAME;
 interface NavProps {
@@ -58,16 +60,18 @@ function Nav(props: NavProps) {
                 />
               </svg>
             </button>
-            <a href="/" className="flex ml-2 md:mr-24">
-              <img
+            <Link href="/" className="flex ml-2 md:mr-24">
+              <Image
                 src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg"
+                width={40}
+                height={40}
                 className="h-8 mr-3"
                 alt="FlowBite Logo"
               />
               <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                 {appName}
               </span>
-            </a>
+            </Link>
             <form action="#" method="GET" className="hidden lg:block lg:pl-3.5">
               <label htmlFor="topbar-search" className="sr-only">
                 Search
@@ -150,15 +154,17 @@ function Nav(props: NavProps) {
                 Notifications
               </div>
               <div>
-                <a
-                  href="#"
+                <span
+                 
                   className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
                 >
                   <div className="flex-shrink-0">
-                    <img
+                    <Image
                       className="rounded-full w-11 h-11"
                       src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green.png"
                       alt="Jese image"
+                      width={40}
+                      height={40}
                     />
                     <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 border border-white rounded-full bg-primary-700 dark:border-gray-700">
                       <svg
@@ -184,163 +190,11 @@ function Nav(props: NavProps) {
                       a few moments ago
                     </div>
                   </div>
-                </a>
-                <a
-                  href="#"
-                  className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
-                >
-                  <div className="flex-shrink-0">
-                    <img
-                      className="rounded-full w-11 h-11"
-                      src="https://flowbite-admin-dashboard.vercel.app/images/users/jese-leos.png"
-                      alt="Jese image"
-                    />
-                    <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-700">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="w-full pl-3">
-                    <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                      <span className="font-semibold text-gray-900 dark:text-white">
-                        Jese leos
-                      </span>{" "}
-                      and{" "}
-                      <span className="font-medium text-gray-900 dark:text-white">
-                        5 others
-                      </span>{" "}
-                      started following you.
-                    </div>
-                    <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
-                      10 minutes ago
-                    </div>
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
-                >
-                  <div className="flex-shrink-0">
-                    <img
-                      className="rounded-full w-11 h-11"
-                      src="https://flowbite-admin-dashboard.vercel.app/images/users/joseph-mcfall.png"
-                      alt="Joseph image"
-                    />
-                    <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-700">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="w-full pl-3">
-                    <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                      <span className="font-semibold text-gray-900 dark:text-white">
-                        Joseph Mcfall
-                      </span>{" "}
-                      and{" "}
-                      <span className="font-medium text-gray-900 dark:text-white">
-                        141 others
-                      </span>{" "}
-                      love your story. See it and view more stories.
-                    </div>
-                    <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
-                      44 minutes ago
-                    </div>
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
-                >
-                  <div className="flex-shrink-0">
-                    <img
-                      className="rounded-full w-11 h-11"
-                      src="https://flowbite-admin-dashboard.vercel.app/images/users/leslie-livingston.png"
-                      alt="Leslie image"
-                    />
-                    <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-700">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="w-full pl-3">
-                    <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                      <span className="font-semibold text-gray-900 dark:text-white">
-                        Leslie Livingston
-                      </span>{" "}
-                      mentioned you in a comment:{" "}
-                      <span className="font-medium text-primary-700 dark:text-primary-500">
-                        @bonnie.green
-                      </span>{" "}
-                      what do you say?
-                    </div>
-                    <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
-                      1 hour ago
-                    </div>
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <div className="flex-shrink-0">
-                    <img
-                      className="rounded-full w-11 h-11"
-                      src="https://flowbite-admin-dashboard.vercel.app/images/users/robert-brown.png"
-                      alt="Robert image"
-                    />
-                    <div className="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-700">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="w-full pl-3">
-                    <div className="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">
-                      <span className="font-semibold text-gray-900 dark:text-white">
-                        Robert Brown
-                      </span>{" "}
-                      posted a new video: Glassmorphism - learn how to implement
-                      the new design trend.
-                    </div>
-                    <div className="text-xs font-medium text-primary-700 dark:text-primary-400">
-                      3 hours ago
-                    </div>
-                  </div>
-                </a>
+                </span>
+            
               </div>
-              <a
-                href="#"
+              <span
+                
                 className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline"
               >
                 <div className="inline-flex items-center ">
@@ -359,7 +213,7 @@ function Nav(props: NavProps) {
                   </svg>
                   View all
                 </div>
-              </a>
+              </span>
             </div>
             <button
               type="button"
@@ -391,125 +245,9 @@ function Nav(props: NavProps) {
                 Apps
               </div>
               <div className="grid grid-cols-3 gap-4 p-4">
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Sales
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Users
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Inbox
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Profile
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Settings
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <svg
-                    className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
-                    <path
-                      fillRule="evenodd"
-                      d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
-                    Products
-                  </div>
-                </a>
-                <a
-                  href="#"
+                
+                <span
+                
                   className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
                   <svg
@@ -528,9 +266,9 @@ function Nav(props: NavProps) {
                   <div className="text-sm font-medium text-gray-900 dark:text-white">
                     Pricing
                   </div>
-                </a>
-                <a
-                  href="#"
+                </span>
+                <span
+                 
                   className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
                   <svg
@@ -548,9 +286,9 @@ function Nav(props: NavProps) {
                   <div className="text-sm font-medium text-gray-900 dark:text-white">
                     Billing
                   </div>
-                </a>
-                <a
-                  href="#"
+                </span>
+                <span
+                   onClick={handleLogoutClick}
                   className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
                   <svg
@@ -570,7 +308,7 @@ function Nav(props: NavProps) {
                   <div className="text-sm font-medium text-gray-900 dark:text-white">
                     Logout
                   </div>
-                </a>
+                </span>
               </div>
             </div>
             <DarkThemeToggle />
@@ -625,41 +363,40 @@ function Nav(props: NavProps) {
                 </div>
                 <ul className="py-1" role="none">
                   <li>
-                    <a
-                      href="#"
+                    <span
+                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
                       Dashboard
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <span
+                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
                       Settings
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <span
+                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
                       Earnings
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
+                    <span
                       onClick={handleLogoutClick}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
                       Sign out
-                    </a>
+                    </span>
                   </li>
                 </ul>
               </div>

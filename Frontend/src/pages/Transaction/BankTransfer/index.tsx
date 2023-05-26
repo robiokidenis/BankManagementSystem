@@ -2,15 +2,14 @@ import Breadcrumb from "@/libs/components/BreadCrumb";
 import Authenticated from "@/libs/components/layouts/Authenticated";
 import Table from "./Table";
 import { useCallback, useEffect, useState } from "react";
-import { CustomerCreate, TransactionHistoryInteface } from "@/libs/Utils/Interfaces";
+import { TransactionHistoryInteface } from "@/libs/Utils/Interfaces";
 import SearchActionBar from "./SearchActionBar";
-import { ApiGetDepositHistory, ApiGetTransferHistory } from "@/libs/Utils/ApiHelpers";
+import { ApiGetTransferHistory } from "@/libs/Utils/ApiHelpers";
 import FormTransferMoney from "./FormTransferMoney";
 
 function index() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     fetchData();
@@ -40,13 +39,13 @@ function index() {
     { name: "Amount", data: "amount", sorting: true, visible: true },
     { name: "status", data: "status", sorting: true, visible: true },
   ];
-  
+
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [selectAll, setSelectAll] = useState<boolean>(false);
-  
+
   const [dataTable, setDataTable] = useState<TransactionHistoryInteface[]>([]);
 
   const handleSearchInputChange = (
@@ -89,7 +88,9 @@ function index() {
             searchQuery={searchQuery}
             handleSearchInputChange={handleSearchInputChange}
             handleRefresh={handleRefresh}
-            handleAdd={() => { setIsModalOpen(true)}}
+            handleAdd={() => {
+              setIsModalOpen(true);
+            }}
           />
         </div>
       </div>
@@ -108,7 +109,6 @@ function index() {
             />
           </div>
         </div>
- 
       </div>
       <FormTransferMoney
         isModalOpen={isModalOpen}

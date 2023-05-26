@@ -109,7 +109,7 @@ function index() {
                           </label>
 
                           <h3 className="mb-4 text-xl font-semibold border rounded-lg p-2 text-center  text-gray-900 dark:text-white">
-                            {userDetails.bank_account.account_number}
+                            {userDetails.bank_account?.account_number ??''}
                           </h3>
                         </div>
                         <label

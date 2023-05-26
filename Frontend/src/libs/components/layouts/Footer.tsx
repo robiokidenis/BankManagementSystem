@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Quote } from "@/libs/Utils/Interfaces";
-import { fetchRandomQuote } from "@/libs/Utils/ApiHelpers";
 const appName = process.env.NEXT_PUBLIC_APP_NAME;
 const Footer: React.FC = () => {
   const [quote, setQuote] = useState<Quote>();

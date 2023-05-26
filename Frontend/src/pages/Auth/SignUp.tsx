@@ -2,7 +2,7 @@ import { ApiRegister, authenticate } from "@/libs/Utils/ApiHelpers";
 
 import { useState, ChangeEvent } from "react";
 import { useRouter } from "next/router";
-import { UserDataInterface } from "@/libs/Utils/Interfaces";
+import { UserDataInterface, UserInterface } from "@/libs/Utils/Interfaces";
 import Swal from "sweetalert2";
 
 const appName = process.env.NEXT_PUBLIC_APP_NAME;
@@ -11,7 +11,7 @@ function SignUp() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const initialUserDetails: UserDataInterface = {
+  const initialUserDetails: UserInterface = {
     first_name: "",
     last_name: "",
     name: "",
@@ -29,7 +29,7 @@ function SignUp() {
     password_confirmed: "",
   };
   const [userDetails, setUserDetail] =
-    useState<UserDataInterface>(initialUserDetails);
+    useState<UserInterface>(initialUserDetails);
 
   const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
