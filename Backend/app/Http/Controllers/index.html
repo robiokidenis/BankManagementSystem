@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <title>Tailwind CSS Layout</title>
+  <style>
+    .sidebar {
+      width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-gray-800 p-4">
+    <!-- Navbar content -->
+  </nav>
+
+  <!-- Sidebar and Body -->
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="bg-gray-200 sidebar">
+      <!-- Sidebar content -->
+    </aside>
+
+    <!-- Body -->
+    <main class="flex-grow p-4">
+      <!-- Three Columns -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-gray-300">Column 1</div>
+        <div class="bg-gray-400">Column 2</div>
+        <div class="bg-gray-500">Column 3</div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
