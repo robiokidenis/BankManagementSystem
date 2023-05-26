@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nextjs_app:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    image: nextjs-app
+    container_name: nextjs_app
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+
+  php_app:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    command: 'php artisan serve --host=0.0.0.0 --port=8000'
+    image: php-app
+    container_name: php_app
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    volumes:
+      - ./Backend:/var/www
