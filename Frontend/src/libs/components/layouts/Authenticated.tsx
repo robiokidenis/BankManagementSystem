@@ -68,7 +68,7 @@ const Authenticated: React.FC<ContentProps> = ({ children }) => {
     <>
       <Nav user={user} />
       <Sidebar />
-      <Content>{auth && children}</Content>
+      <Content>{children}</Content>
     </>
   );
 };

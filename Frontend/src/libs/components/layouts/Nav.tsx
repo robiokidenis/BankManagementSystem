@@ -140,7 +140,7 @@ function Nav(props: NavProps) {
               </svg>
             </button>
             <div
-              className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700"
+              className="z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:divide-gray-600 dark:bg-gray-700"
               id="notification-dropdown"
               data-popper-placement="bottom"
               style={{
@@ -231,7 +231,7 @@ function Nav(props: NavProps) {
               </svg>
             </button>
             <div
-              className="z-20 z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600"
+              className="z-50 hidden max-w-sm my-4 overflow-hidden text-base list-none bg-white divide-y divide-gray-100 rounded shadow-lg dark:bg-gray-700 dark:divide-gray-600"
               id="apps-dropdown"
               data-popper-placement="bottom"
               style={{
