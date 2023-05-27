@@ -32,9 +32,9 @@ This is the README file for the Bank Management System. It provides information 
    make up
    ```
    #### Without dokcer and docker-compose
-   [Backend README](./backend/README.md)
+   [Backend README](./Backend/README.md)
 
-   [Frontend README](./frontend/README.md)
+   [Frontend README](./Frontend/README.md)
 
     
 4. Access the application:
