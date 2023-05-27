@@ -1,0 +1,16 @@
+# Ignore general files and directories
+node_modules
+npm-debug.log
+yarn-error.log
+# yarn.lock
+# .env
+# .env.local
+
+# Ignore build artifacts
+/.next
+/out
+
+# Ignore development files
+.dockerignore
+Dockerfile.dev
+docker-compose.yml

@@ -1,0 +1,17 @@
+# Ignore general files and directories
+.git
+node_modules
+npm-debug.log
+yarn-error.log
+yarn.lock
+# .env
+.env.*
+vendor
+
+# Ignore Laravel specific directories
+bootstrap/cache
+storage/logs
+
+# Ignore development files
+docker-compose.yml
+Dockerfile.dev
