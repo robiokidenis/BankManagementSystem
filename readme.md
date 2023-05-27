@@ -111,3 +111,25 @@ If you encounter an error during the frontend build process, such as a build fai
 
 The development server provides a live development environment with hot reloading, which can help in resolving build-related issues. The frontend development server will be accessible at `http://localhost:3000`.
 
+
+## ARCHITECTURES
+
+### API Architecture:
+User Authentication:
+
+- `POST /register`: Register a new user.
+- `POST /login`: Authenticate the user.
+- `POST /logout`: Log out the authenticated user.
+- `GET /me`: Get the current user's information.
+
+Bank Account Management:
+
+- `GET /bank-account`: Get the bank account details of the authenticated user.
+- `GET /bank-account/{account_number}`: Get detailed information about a specific bank account.
+- `POST /transfer`: Transfer money between bank accounts or to other users.
+- `GET /transfers`: Get the transfer history of the authenticated user.
+- `POST /deposit`: Deposit money into a specific bank account.
+- `GET /deposits`: Get the deposit history of the authenticated user.
+- `GET /bank-accounts`: Get a list of all bank accounts.
+- `GET /transactions`: Get the transaction history of the authenticated user.
+- `GET /users`: Get the list of recipients for money transfer.
