@@ -68,7 +68,7 @@ function Sidebar() {
                                   <span
                                     className={
                                       (pathname.includes(childItem.path)
-                                        ? "bg-gray-200 "
+                                        ? "bg-gray-200 dark:bg-gray-700 "
                                         : "") +
                                       "flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                                     }
@@ -84,8 +84,8 @@ function Sidebar() {
                         <Link href={item.path} key={item.path}>
                           <span
                             className={
-                              (pathname === item.path ? "bg-gray-200 " : " ") +
-                              "flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
+                              (pathname === item.path ? "bg-gray-200 dark:bg-gray-700 " : " ") +
+                              "flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-100 dark:hover:bg-gray-700"
                             }
                           >
                             <DynamicHeroIcon

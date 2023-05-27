@@ -1,10 +1,11 @@
+import DynamicHeroIcon from "@/libs/Icons";
 import { logout } from "@/libs/Utils/ApiHelpers";
 import { formatCurrency } from "@/libs/Utils/Helpers";
 import { UserDataInterface } from "@/libs/Utils/Interfaces";
 import { DarkThemeToggle } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 const appName = process.env.NEXT_PUBLIC_APP_NAME;
 interface NavProps {
   user: UserDataInterface;
@@ -13,14 +14,38 @@ function Nav(props: NavProps) {
   const { user } = props;
   // Function to handle button click
   const handleLogoutClick = async () => {
-    const result = await logout();
-    if (result.success) {
-      // window.location.href = "/login";
-    } else {
-      // Handle logout error
-      console.error("Logout error:", result.error);
-    }
+    await logout();
   };
+
+  const switchDarkMode = () => {
+    const rootElement = document.documentElement;
+    const darkIcon = document.getElementById("theme-toggle-dark-icon");
+    const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+    const isDarkMode = rootElement.classList.contains("dark");
+    rootElement.classList.toggle("dark", !isDarkMode);
+
+    if (darkIcon && lightIcon) {
+      darkIcon.classList.toggle("hidden", !isDarkMode);
+      lightIcon.classList.toggle("hidden", isDarkMode);
+    }
+
+    localStorage.setItem("darkMode", String(!isDarkMode));
+  };
+
+  useEffect(() => {
+    // Check if dark mode state is saved in local storage
+    const savedDarkMode = localStorage.getItem("darkMode");
+
+    // Set initial dark mode state based on the saved value
+    if (savedDarkMode === "true") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    return () => {};
+  }, []);
 
   return (
     <nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -154,10 +179,7 @@ function Nav(props: NavProps) {
                 Notifications
               </div>
               <div>
-                <span
-                 
-                  className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
-                >
+                <span className="flex px-4 py-3 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
                   <div className="flex-shrink-0">
                     <Image
                       className="rounded-full w-11 h-11"
@@ -191,12 +213,8 @@ function Nav(props: NavProps) {
                     </div>
                   </div>
                 </span>
-            
               </div>
-              <span
-                
-                className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline"
-              >
+              <span className="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline">
                 <div className="inline-flex items-center ">
                   <svg
                     className="w-5 h-5 mr-2"
@@ -245,11 +263,7 @@ function Nav(props: NavProps) {
                 Apps
               </div>
               <div className="grid grid-cols-3 gap-4 p-4">
-                
-                <span
-                
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
+                <span className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">
                   <svg
                     className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
                     fill="currentColor"
@@ -267,10 +281,7 @@ function Nav(props: NavProps) {
                     Pricing
                   </div>
                 </span>
-                <span
-                 
-                  className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
+                <span className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">
                   <svg
                     className="mx-auto mb-1 text-gray-500 w-7 h-7 dark:text-gray-400"
                     fill="currentColor"
@@ -288,7 +299,7 @@ function Nav(props: NavProps) {
                   </div>
                 </span>
                 <span
-                   onClick={handleLogoutClick}
+                  onClick={handleLogoutClick}
                   className="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600"
                 >
                   <svg
@@ -311,7 +322,21 @@ function Nav(props: NavProps) {
                 </span>
               </div>
             </div>
-            <DarkThemeToggle />
+            {/* <DarkThemeToggle /> */}
+            <button
+              onClick={switchDarkMode}
+              aria-label="Toggle dark mode"
+              data-testid="dark-theme-toggle"
+              type="button"
+              className=" rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+              <span id="theme-toggle-dark-icon" className="hidden">
+                <DynamicHeroIcon className="h-5 w-5 " icon="SunIcon" />
+              </span>
+              <span id="theme-toggle-light-icon" className="">
+                <DynamicHeroIcon className="h-5 w-5 " icon="MoonIcon" />
+              </span>
+            </button>
 
             <div className="flex items-center ml-3">
               <div>
@@ -364,7 +389,6 @@ function Nav(props: NavProps) {
                 <ul className="py-1" role="none">
                   <li>
                     <span
-                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
@@ -373,7 +397,6 @@ function Nav(props: NavProps) {
                   </li>
                   <li>
                     <span
-                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
@@ -382,7 +405,6 @@ function Nav(props: NavProps) {
                   </li>
                   <li>
                     <span
-                     
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                       role="menuitem"
                     >
