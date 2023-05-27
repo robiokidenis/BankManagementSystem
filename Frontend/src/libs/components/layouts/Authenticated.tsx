@@ -16,7 +16,7 @@ const DynamicFlowbite = dynamic(
   }
 );
 const Authenticated: React.FC<ContentProps> = ({ children }) => {
-  const [auth, setAuth] = useState<boolean>(false);
+
   const initialUserDetails: UserDataInterface = {
     id: 0,
     first_name: "",
@@ -53,12 +53,11 @@ const Authenticated: React.FC<ContentProps> = ({ children }) => {
       const response = await ApiGetUserDetail();
       if (response && response.data.data) {
         setUser(response.data.data);
-        setAuth(true);
       }
     } catch (error) {
-      location.href = "/login";
+
     }
-  }, [setUser, setAuth]);
+  }, [setUser]);
 
   useEffect(() => {
     fetchData();
