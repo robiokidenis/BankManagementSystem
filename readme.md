@@ -2,6 +2,17 @@
 
 This is the README file for the Bank Management System. It provides information about the available commands and how to use them.
 
+
+## Features
+The Application includes the following features:
+
+- Register: Users can register for a new account.
+- Login: Registered users can log in to their accounts.
+- Bank Account: Users can create and manage bank accounts.
+- Deposit: Users can deposit money into their bank accounts.
+- Money Transfer: Users can transfer money between their bank accounts or to other users.
+- Transaction History: Users can view their transaction history.
+
 ## Prerequisites
 
 - Docker
