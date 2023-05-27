@@ -77,9 +77,14 @@ Available Commands
 If you encounter a CORS error, make sure that you have correctly set the `APP_URL` and `FRONTEND_URL` values in the backend's `.env` file. The `APP_URL` should be set to `http://127.0.0.1:8000` and the `FRONTEND_URL` should be set to `http://127.0.0.1:3000` to match the default backend and frontend server addresses. If you are using different addresses or ports, adjust the values accordingly.
 
 ### Backend Container cannot start
-   error 
-    ``` Warning: require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18```
-   please run ```composer install``` before running ```make up ```
+   If you encounter the following error during the container startup: 
+   
+   ``` 
+   Warning: require(/var/www/vendor/autoload.php): Failed to open stream: No such file or directory in /var/www/artisan on line 18
+   ```
+   
+   This error indicates that the vendor directory is missing. To resolve this issue, please run the following command before starting the container:
+   
    
    ```sheel
    cd /Backend && composer install
