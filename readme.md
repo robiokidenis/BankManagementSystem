@@ -31,7 +31,7 @@ This is the README file for the Bank Management System. It provides information 
    ```
    make up
    ```
-   #### Without dokcer and docker-compose
+   #### Without docker and docker-compose
    [Backend README](./Backend/README.md)
 
    [Frontend README](./Frontend/README.md)
