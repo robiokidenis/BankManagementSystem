@@ -34,7 +34,7 @@ The Application includes the following features:
 
 2. Navigate to the project directory:
 ```shell
-    cd project-directory
+    cd BankManagementSystem
 ```
 
 3. Build and run application:
@@ -133,3 +133,4 @@ If you encounter an error during the frontend build process, such as a build fai
 
 The development server provides a live development environment with hot reloading, which can help in resolving build-related issues. The frontend development server will be accessible at `http://localhost:3000`.
 
+blm
