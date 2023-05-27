@@ -52,6 +52,17 @@ Available Commands
 - `make database`: Creates an empty SQLite database file.
 - `make down`: Stops and removes the Docker containers.
 
+
+## Screensort
+
+ 
+ -- bank account
+    ![bank-account](https://github.com/robiokidenis/BankManagementSystem/blob/master/screenshots/bank-account.png)
+ -- history
+    ![History](https://github.com/robiokidenis/BankManagementSystem/blob/master/screenshots/history.png)
+   
+
+
 ## Troubleshooting
 
 ### CORS Error
