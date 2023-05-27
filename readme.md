@@ -45,9 +45,10 @@ This is the README file for the Bank Management System. It provides information 
     -- Open your web browser and visit http://127.0.0.0.1:8000
     
 5. Default Credentials:
-
-    - Email: robiokidenis@gmail.com
-    - Password: password
+  ```
+     email: robiokidenis@gmail.com
+     password: password
+   ```
 
 
 Available Commands
