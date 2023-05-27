@@ -38,39 +38,36 @@ RUN docker-php-ext-install \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
-WORKDIR /var/www
-
+WORKDIR /var/www/Backend
 
 # Create system user to run Composer and Artisan Commands
 RUN useradd -G www-data,root -u $USER_UID -d /home/$USER_NAME -s /bin/bash $USER_NAME
 RUN mkdir -p /home/$USER_NAME/.composer && \
     chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 
-# Run composer install
-USER root
-COPY composer.json composer.lock ./
-RUN mkdir -p vendor && \
-    chown -R $USER_NAME:$USER_NAME vendor && \
-    su -c "composer install --no-scripts --no-autoloader" -s /bin/bash $USER_NAME
-
-
-# # Create SQLite database file
-# RUN touch database.sqlite && \
-#     chown $USER_NAME:$USER_NAME database.sqlite && \
-#     chmod 664 database.sqlite
-    
-
-# Copy environment file
-COPY .env .env
-
-# Fix environment file permissions
-RUN chown $USER_NAME:$USER_NAME .env && \
-    chmod 644 .env
+# Create bootstrap/cache directory and set permissions
+RUN mkdir -p bootstrap/cache && \
+    chown -R www-data:www-data bootstrap/cache && \
+    chmod -R 775 bootstrap/cache
 
 # Copy application files
-USER $USER_NAME
-COPY --chown=$USER_NAME:$USER_NAME . .
+COPY . .
 
+# Run composer install as the user
+RUN composer install --no-scripts --no-autoloader
+
+# Fix ownership and permissions for the vendor directory
+RUN chown -R www-data:www-data vendor && \
+    chmod -R 775 vendor
+
+# Generate optimized autoloader
+RUN composer dump-autoload --optimize --classmap-authoritative
+
+# Expose port 8000 for the Laravel application
+EXPOSE 8000
 
 # Run database migrations and seed the database
 # RUN php artisan migrate:fresh --seed
+
+# Start the Laravel application
+# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
