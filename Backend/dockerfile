@@ -73,4 +73,4 @@ COPY --chown=$USER_NAME:$USER_NAME . .
 
 
 # Run database migrations and seed the database
-RUN php artisan migrate:fresh --seed
+# RUN php artisan migrate:fresh --seed

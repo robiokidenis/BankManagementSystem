@@ -1,23 +1,23 @@
-# Stage 1: Build the Next.js application
-FROM node:14.17-alpine as build-stage
+FROM node:lts as dependencies
+WORKDIR /my-project
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-WORKDIR /app
-
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json ./
-
-# Install dependencies
-RUN npm ci --silent
-
-# Copy the rest of the application code
+FROM node:lts as builder
+WORKDIR /my-project
 COPY . .
+COPY --from=dependencies /my-project/node_modules ./node_modules
+RUN yarn build
 
-# Build the Next.js application
-RUN npm run build
+FROM node:lts as runner
+WORKDIR /my-project
+ENV NODE_ENV production
+# If you are using a custom next.config.js file, uncomment this line.
+# COPY --from=builder /my-project/next.config.js ./
+COPY --from=builder /my-project/public ./public
+COPY --from=builder /my-project/.next ./.next
+COPY --from=builder /my-project/node_modules ./node_modules
+COPY --from=builder /my-project/package.json ./package.json
 
-
-# Expose port 3000 for the HTTP server
 EXPOSE 3000
-
-# Start the Next.js application
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
