@@ -31,8 +31,13 @@ backend:
 	php artisan serve
 
 database:
-	cd Backend && \
-	touch database/database.sqlite
+	@if grep -q "^DB_DATABASE=" Backend/.env; then \
+		sed -i '' -e 's|^DB_DATABASE=.*|DB_DATABASE=/var/www/database/database.sqlite|' Backend/.env; \
+	else \
+		echo "DB_DATABASE=/var/www/database/database.sqlite" >> Backend/.env; \
+	fi
+	@cd Backend && touch database/database.sqlite
+
 
 down:
 	docker-compose down --rmi all
