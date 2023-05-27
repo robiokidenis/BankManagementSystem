@@ -26,10 +26,17 @@ This is the README file for the Bank Management System. It provides information 
     cd project-directory
 ```
 
-3. Build and run the containers:
-```shell
- make up
-```
+3. Build and run application:
+   #### Using docker and docker-compose
+   ```
+   make up
+   ```
+   #### Without dokcer and docker-compose
+   [Backend README](./backend/README.md)
+
+   [Frontend README](./frontend/README.md)
+
+    
 4. Access the application:
   
  - fronend
