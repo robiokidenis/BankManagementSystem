@@ -100,6 +100,7 @@ const refreshToken = async () => {
   }
 };
 
+
 const ApiGetUserDetail = async () => {
   try {
     const accessToken = localStorage.getItem("access_token");
@@ -118,6 +119,27 @@ const ApiGetUserDetail = async () => {
     return { success: false, error: "error" };
   }
 };
+
+
+const ApiGetBankAccounts = async () => {
+  try {
+    const accessToken = localStorage.getItem("access_token");
+    const response = await axios.get(`${apiUrl}/bank-accounts`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return { success: true, data: response.data };
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
+      SessionExpire();
+    } else {
+      console.error(error);
+    }
+    return { success: false, error: "error" };
+  }
+};
+
 const ApiGetDepositHistory = async () => {
   try {
     const accessToken = localStorage.getItem("access_token");
@@ -287,4 +309,5 @@ export {
   ApiPostTransfer,
   ApiPostDeposit,
   fetchRandomQuote,
+  ApiGetBankAccounts
 };

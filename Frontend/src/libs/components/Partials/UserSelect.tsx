@@ -1,7 +1,6 @@
-import { formatNumber } from "@/libs/Utils/Helpers";
+
 import {
   ApiResponse,
-  UserDataInterface,
 } from "@/libs/Utils/Interfaces";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -9,8 +8,9 @@ import { useEffect, useState } from "react";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 interface UserSelect {
   id: string | undefined;
-  first_name: string;
-  last_name: string;
+  name: string;
+  account_number: string;
+  user_id: string;
 }
 
 interface UserSelectProps {
@@ -22,13 +22,13 @@ interface UserSelectProps {
 
 function UserSelect(props: UserSelectProps) {
   const { onChange, selectedId, showError, label } = props;
-  const [usersData, setUserSelects] = useState<UserDataInterface[]>([]);
+  const [usersData, setUserSelects] = useState<UserSelect[]>([]);
   const accessToken = localStorage.getItem("access_token");
   
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get<ApiResponse<UserDataInterface>>(
-        `${apiUrl}/users/`,
+      const response = await axios.get<ApiResponse<UserSelect>>(
+        `${apiUrl}/bank-accounts/`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -63,8 +63,8 @@ function UserSelect(props: UserSelectProps) {
         <option></option>
         {usersData &&
           usersData?.map((cs) => (
-            <option key={cs.id} value={cs.bank_account?.account_number??''}>
-              {cs.bank_account?.account_number ??''} - {cs.first_name} {cs.last_name}
+            <option key={cs.id} value={cs.account_number}>
+              {cs.account_number} - {cs.name}
             </option>
           ))}
       </select>

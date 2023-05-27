@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+/* testing view users */
 Route::get('/user', [BankAccountController::class, 'index']);
 
 Route::post('/register', [ApiAuthController::class, 'register']);
@@ -26,7 +26,6 @@ Route::get('/me', [ApiAuthController::class, 'me'])->middleware(['auth:sanctum']
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/bank-account', [BankAccountController::class, 'bankAccount']);
-    Route::get('/bank-account/history', [BankAccountController::class, 'history']);
     Route::get('/bank-account/{account_number}', [BankAccountController::class, 'view']);
     Route::post('/transfer', [BankAccountController::class, 'transfer']);
     Route::get('/transfers', [BankAccountController::class, 'transferHistory']);

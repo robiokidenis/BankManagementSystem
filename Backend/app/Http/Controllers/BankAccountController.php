@@ -28,14 +28,12 @@ class BankAccountController extends Controller
         // $user = Auth::user();
         // $user=Transaction::get();
         $user = User::with('bankAccount')->get();
-        // $bankAccount = $user->bankAccount;
         return ApiResponse::success($user, 'Users retrieved successfully');
     }
 
     public function getRecipients()
     {
         $user = User::with('bankAccount')->get();
-        // $bankAccount = $user->bankAccount;
         return ApiResponse::success($user, 'Users retrieved successfully');
     }
 
@@ -115,26 +113,6 @@ class BankAccountController extends Controller
         return ApiResponse::success(new ListBankAccountResource($bankAccount), 'Bankaccount');
     }
 
-    public function History()
-    {
-        $user = Auth::user();
-
-        if (!$user) {
-            return ApiResponse::error('Unauthenticated!', 401);
-        }
-
-        $transactions = TransactionService::History($user->bankAccount);
-        $formattedTransactions = $transactions->map(function ($transaction) use ($user) {
-            $type = $transaction->sender_account_id === $user->bankAccount->id ? 'Transfer' : 'Receive';
-            return [
-                'type' => $type,
-                'amount' => $transaction->amount,
-                'created_at' => $transaction->created_at->format('d M Y'),
-            ];
-        });
-
-        return ApiResponse::success($formattedTransactions, 'Transaction history retrieved successfully!');
-    }
     public function DepositHistory()
     {
         $user = Auth::user();
