@@ -12,40 +12,33 @@ interface NavProps {
 }
 function Nav(props: NavProps) {
   const { user } = props;
-  // Function to handle button click
   const handleLogoutClick = async () => {
     await logout();
   };
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    document.documentElement.classList.toggle("dark", savedDarkMode === "true");
+    switchDarkModeIcon(savedDarkMode === "true");
+    return () => {};
+  }, []);
 
   const switchDarkMode = () => {
     const rootElement = document.documentElement;
-    const darkIcon = document.getElementById("theme-toggle-dark-icon");
-    const lightIcon = document.getElementById("theme-toggle-light-icon");
+    const isDarkMode = rootElement.classList.toggle("dark");
+    switchDarkModeIcon(isDarkMode);
+  };
 
-    const isDarkMode = rootElement.classList.contains("dark");
-    rootElement.classList.toggle("dark", !isDarkMode);
+  const switchDarkModeIcon = (isDarkMode: boolean) => {
+    const lightIcon = document.getElementById("theme-toggle-sun-icon");
+    const darkIcon = document.getElementById("theme-toggle-moon-icon");
 
     if (darkIcon && lightIcon) {
-      darkIcon.classList.toggle("hidden", !isDarkMode);
-      lightIcon.classList.toggle("hidden", isDarkMode);
+      darkIcon.classList.toggle("hidden", isDarkMode);
+      lightIcon.classList.toggle("hidden", !isDarkMode);
     }
 
     localStorage.setItem("darkMode", String(!isDarkMode));
   };
-
-  useEffect(() => {
-    // Check if dark mode state is saved in local storage
-    const savedDarkMode = localStorage.getItem("darkMode");
-
-    // Set initial dark mode state based on the saved value
-    if (savedDarkMode === "true") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    return () => {};
-  }, []);
 
   return (
     <nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -330,10 +323,10 @@ function Nav(props: NavProps) {
               type="button"
               className=" rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             >
-              <span id="theme-toggle-dark-icon" className="hidden">
+              <span id="theme-toggle-sun-icon" className="hidden">
                 <DynamicHeroIcon className="h-5 w-5 " icon="SunIcon" />
               </span>
-              <span id="theme-toggle-light-icon" className="">
+              <span id="theme-toggle-moon-icon" className="">
                 <DynamicHeroIcon className="h-5 w-5 " icon="MoonIcon" />
               </span>
             </button>
