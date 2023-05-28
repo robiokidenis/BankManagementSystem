@@ -20,9 +20,9 @@ The Application includes the following features:
 
 ## Tech Stack
 
-- Backend: Laravel
-- Frontend: Next.js
-- CSS Framework: Tailwind CSS
+- Backend: Laravel,
+- Frontend: Next.js & Typescript
+- CSS Framework: Tailwind CSS 
 
 ## Getting Started
 
