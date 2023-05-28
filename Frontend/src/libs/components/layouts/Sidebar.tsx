@@ -108,6 +108,7 @@ function Sidebar() {
                       href="#"
                       className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
                     >
+
                       <svg
                         aria-hidden="true"
                         className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white dark:text-gray-400"
@@ -202,7 +203,7 @@ function Sidebar() {
               />
             </a>
             <a
-              href="https://flowbite-admin-dashboard.vercel.app/settings/"
+              href="/"
               data-tooltip-target="tooltip-settings"
               className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
             >
