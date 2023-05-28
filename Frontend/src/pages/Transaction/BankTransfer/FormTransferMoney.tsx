@@ -196,7 +196,7 @@ const FormTransferMoney: React.FC<Props> = ({
                           </p>
                         ))}
                         <p
-                          className="mt-3 mr-2 text-sm hover:text-blue-700 cursor-pointer truncate rounded-[20px] border p-1 dark:text-white-500"
+                         className="mt-3 mr-2 text-sm hover:text-blue-700 border-[#E7EAEE] cursor-pointer truncate rounded-[20px] border p-1 text-gray-600 dark:text-white-500"
                           onClick={() =>
                             setAmount(userDetails.bank_account?.balance)
                           }
