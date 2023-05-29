@@ -131,6 +131,6 @@ If you encounter an error during the frontend build process, such as a build fai
 2. Install the dependencies: `yarn`
 3. Start the frontend development server: `yarn dev`
 
-The development server provides a live development environment with hot reloading, which can help in resolving build-related issues. The frontend development server will be accessible at `http://localhost:3000`.
+The development server provides a live development environment with hot reloading, which can help in resolving build-related issues. The frontend development server will be accessible at `http://127.0.0.01:3000`.
 
-blm
+![GitHub All Releases](https://img.shields.io/github/downloads/lewdev/hw-gen/total)
