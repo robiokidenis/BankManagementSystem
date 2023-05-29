@@ -15,20 +15,23 @@ function Nav(props: NavProps) {
   const handleLogoutClick = async () => {
     await logout();
   };
+
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode");
     document.documentElement.classList.toggle("dark", savedDarkMode === "true");
-    switchDarkModeIcon(savedDarkMode === "true");
+    switchDarkModeIcon();
     return () => {};
   }, []);
 
   const switchDarkMode = () => {
     const rootElement = document.documentElement;
     const isDarkMode = rootElement.classList.toggle("dark");
-    switchDarkModeIcon(isDarkMode);
+    localStorage.setItem("darkMode", String(isDarkMode));
+    switchDarkModeIcon();
   };
 
-  const switchDarkModeIcon = (isDarkMode: boolean) => {
+  const switchDarkModeIcon = () => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
     const lightIcon = document.getElementById("theme-toggle-sun-icon");
     const darkIcon = document.getElementById("theme-toggle-moon-icon");
 
@@ -36,8 +39,6 @@ function Nav(props: NavProps) {
       darkIcon.classList.toggle("hidden", isDarkMode);
       lightIcon.classList.toggle("hidden", !isDarkMode);
     }
-
-    localStorage.setItem("darkMode", String(!isDarkMode));
   };
 
   return (
