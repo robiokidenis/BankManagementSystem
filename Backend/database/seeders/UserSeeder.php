@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'country' => 'United States',
             'city' => 'San Francisco',
             'address' => 'California',
-            'email' => 'robiokidenis@gmail.com',
+            'email' => 'admin@email.com',
             'phone_number' => '+(12)3456 789',
             'birthday' => '1990-08-15',
             'organization' => 'Company Name',
