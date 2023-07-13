@@ -57,7 +57,7 @@ The Application includes the following features:
     
 5. Default Credentials:
   ```
-     email: robiokidenis@gmail.com
+     email: admin@email.com
      password: password
    ```
 
