@@ -74,7 +74,9 @@ Available Commands
 
 ## Screensort
 
- 
+
+ -- Demo Video
+    ![Demo Video](https://youtu.be/M5Ulh1vjyyk?si=s1RerJX9dJZ5gpuc)
  -- bank account
     ![bank-account](https://github.com/robiokidenis/BankManagementSystem/blob/master/screenshots/bank-account.png)
  -- history
@@ -133,4 +135,4 @@ If you encounter an error during the frontend build process, such as a build fai
 
 The development server provides a live development environment with hot reloading, which can help in resolving build-related issues. The frontend development server will be accessible at `http://127.0.0.01:3000`.
 
-![GitHub All Releases](https://img.shields.io/github/downloads/lewdev/hw-gen/total)
+
