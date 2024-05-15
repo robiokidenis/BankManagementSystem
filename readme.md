@@ -75,11 +75,11 @@ Available Commands
 ## Screensort
 
 
- -- Demo Video
-    ![Demo Video](https://youtu.be/M5Ulh1vjyyk?si=s1RerJX9dJZ5gpuc)
- -- bank account
+ -- Demo Video.
+    You can watch the demo video [here](https://youtu.be/M5Ulh1vjyyk?si=oKYpUJvGDtCDgWz5) .
+ -- bank account.
     ![bank-account](https://github.com/robiokidenis/BankManagementSystem/blob/master/screenshots/bank-account.png)
- -- history
+ -- history.
     ![History](https://github.com/robiokidenis/BankManagementSystem/blob/master/screenshots/history.png)
    
 
